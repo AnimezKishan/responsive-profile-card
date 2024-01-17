@@ -54,7 +54,7 @@ function Canvas(){
 
 
     function animateRoamingParticle() {
-        ctx1.fillStyle = "black";
+        ctx1.fillStyle = "rgb(16,23,32)";
         ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
 
         handleRoamingParticle();
@@ -87,9 +87,12 @@ function Canvas(){
             this.x = mouse.x;
             this.y = mouse.y;
 
-            this.size = Math.random() * 15 + 3;
+            this.size = Math.random() * 20 + 3;
             this.speedX = Math.random() * 4 - 2;
             this.speedY = Math.random() * 4 - 2;
+
+            this.hue = Math.random() * 360  + 1;
+            this.color = `hsl(${this.hue}, 100%, 50%)`;
         }
 
         update(){
@@ -100,7 +103,7 @@ function Canvas(){
         }
 
         draw(){
-            ctx1.fillStyle = "orange";
+            ctx1.fillStyle = this.color;
             ctx1.beginPath();
             ctx1.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx1.fill();
