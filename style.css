@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+
+:root{
+    --primary-clr: #F0F8FF;
+    --secondary-clr: #10a37f;
+}
+
+a{
+    text-decoration: none;
+}
+
+.canvas1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-clr);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.main{
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.card{
+    width: 30em;
+    height: 45em;
+    position: absolute;
+    top: calc(50% + 1.75em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 2em;
+
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+}
+
+.card .img{
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background: url(01.png);
+    background-size: 110%;
+    background-position: 45% 60%;
+    left: 50%;
+    top: calc(0% - 5em);
+    transform: translateX(-50%);
+    animation: anime 5s ease-in infinite;
+}
+
+.title{
+    margin-top: 10em;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0.5em;
+    color: var(--primary-clr);
+    pointer-events: none;
+    
+}
+
+.title h3{
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.title p{
+    font-size: 1.5em;
+}
+
+.buttons{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    margin-top: 5em;
+    justify-content: space-between;
+}
+
+.connect{
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+    padding: 1.5em 3em;
+    border-radius: 3em;
+    letter-spacing: .1em;
+    transition: all ease 0.3s;
+}
+
+.message{
+    border: 3px solid var(--secondary-clr);
+    padding: 1.3em 2.75em;
+    border-radius: 3em;
+    color: var(--primary-clr);
+    letter-spacing: .1em;
+    background-color: transparent;
+    transition: all ease 0.3s;
+}
+
+.stacks{
+    margin-top: 6em;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: fit-content;
+    padding: 0 2.5em;
+}
+
+.stacks i{
+    color: var(--primary-clr);
+    font-size: 1.8em;
+    font-weight: 100;
+}
+
+.visit{
+    margin-top: 6em;
+    width: 100%;
+    height: fit-content;
+    padding: 1.5em 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-clr);
+    border-radius: 3em;
+    font-size: 1em;
+    letter-spacing: .08em;
+    color: var(--primary-clr);
+    font-weight: 100;
+    transition: all ease 0.3s;
+}
+
+.stacks i:hover{
+    color: var(--secondary-clr);
+    cursor: pointer;
+}
+
+.message:hover{
+    border: 3px solid var(--secondary-clr);
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+}
+
+.visit:hover, .connect:hover{
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+}
+
+@keyframes anime {
+    0%{
+        background: url(01.png);
+        background-size: 110%;
+        background-position: 45% 60%;
+    }
+
+    50%{
+        background: url(02.png);
+        background-size: 110%;
+        background-position: 45% 60%;
+    }
+
+    100%{
+        background: url(01.png);
+        background-size: 110%;
+        background-position: 45% 60%;
+    }
+}
+
+@media (max-width: 650px){
+    .main{
+        overflow: hidden;
+    }
+    .card{
+        width: 20em;
+        height: 35em;
+        top: calc(50%);
+        padding: 0 1.5em;
+    }
+
+    .card .img{
+        width: 7.5em;
+        height: 7.5em;
+        left: 50%;
+        top: calc(0% - 3.75em);
+    }
+
+    .title{
+        margin-top: 8em;
+        gap: 0.4em;
+    }
+
+    .title h3{
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+
+    .title p{
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+    .buttons{
+        margin-top: 4em;
+    }
+
+    .connect{
+        padding: 0.9em 1.3em;
+        letter-spacing: .1em;
+        transition: all ease 0.3s;
+    }
+
+    .message{
+        border: 2px solid var(--secondary-clr);
+        padding: 0.85em 1.3em;
+    }
+
+    .stacks{
+        margin-top: 5em;
+        padding: 0 15px;
+    }
+
+    .stacks i{
+        font-size: 30px;
+        padding: 0 0;
+        font-weight: 100;
+    }
+
+    .visit{
+        margin-top: 5em;
+        padding: .9em 0;
+    }
+}
+
+@media (max-height: 800px) {
+    .visit{
+        margin-top: 3.5em;
+        font-weight: 400;
+    }
+}
